@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  django_baykar:
+    build:
+      context: .
+    container_name: django_baykar
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+      - static:/static
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:12.4
+    container_name: db_baykar
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: baykar
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    volumes:
+      - static:/static
+    ports:
+      - "8080:8080"
+    depends_on:
+      - django_baykar
+
+volumes:
+  postgres_data:
+  static:
+
+

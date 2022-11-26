@@ -1,0 +1,59 @@
+{% load static %}
+<div class="leftside-menu">
+    <a href="{% url 'IHA:index' %}" class="logo text-center logo-light">
+        <span class="logo-lg">
+            <img src="{% static 'img/logo/baykar.png' %}" alt="" height="96">
+        </span>
+        <span class="logo-sm">
+            <img src="{% static 'img/logo/BaykarLogo.png' %}" alt="" height="48">
+        </span>
+    </a>
+    <a href="{% url 'IHA:index' %}" class="logo text-center logo-dark">
+        <span class="logo-lg">
+            <img src="{% static 'img/logo/baykar.png' %}" alt="" height="96">
+        </span>
+        <span class="logo-sm">
+            <img src="{% static 'img/logo/BaykarLogo.png' %}" alt="" height="48">
+        </span>
+    </a>
+
+    <div class="h-100" id="leftside-menu-container" data-simplebar>
+        <ul class="side-nav">
+            <li class="side-nav-title side-nav-item">Dashboard</li>
+
+            <li class="side-nav-item">
+                <a href="{% url 'IHA:index' %}" class="side-nav-link">
+                    <i class="uil-calender"></i>
+                    <span> Kategoriler </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="{% url 'IHA:add_new_category' %}" class="side-nav-link">
+                    <i class="uil-calender"></i>
+                    <span> Yeni Kategori Ekle </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="{% url 'IHA:add_new_iha' %}" class="side-nav-link">
+                    <i class="mdi mdi-import"></i>
+                    <span> İha Ekle </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{% url 'IHA:iha_list' %}" class="side-nav-link">
+                    <i class="mdi mdi-format-list-bulleted"></i>
+                    <span> İha Listele </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="../../api/" class="side-nav-link">
+                    <i class="mdi mdi-api"></i>
+                    <span> İha API </span>
+                </a>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
